@@ -1,0 +1,33 @@
+第一种情况：
+
+如何使用热部署  修改代码后 先ctrl+F9   然后再访问
+添加依赖一定指定版本----默认版本有的不能使用
+第一步::
+ <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-devtools</artifactId>
+            <version>2.1.6.RELEASE</version>
+            <optional>true</optional>
+            <scope>runtime</scope>
+        </dependency>
+第二步：：
+ <!-- 这是spring boot devtool plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <!--fork :  如果没有该项配置，肯呢个devtools不会起作用，即应用不会restart -->
+                    <fork>true</fork>
+                    <addResources>true</addResources>
+                </configuration>
+            </plugin>
+
+第三步：
+
+
+配置选择setting---compiler---builder project autoXXXXX
+然后ctrl+shift+alt+/ 选择register 然后选择compiler.automake.allow.when.app.running
+选择好就可以了，不要点击下面的reStsrtXXXXX这个是回到默认
+
+
+重启idea就可以起效了。
